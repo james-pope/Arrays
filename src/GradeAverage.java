@@ -86,5 +86,15 @@ public class GradeAverage {
 		System.out.println("sr3 improves: " + sr3.showsImprovement());
 		System.out.println("sr3 final grade " + sr3.finalGrade());
 	}
-
+/* OUTPUT
+mean of sr1: 50.75
+sr1 improves: false
+sr1 final grade: 50.6
+mean of sr2: 61.0
+sr2 improves: true
+sr2 final grade: 61.0
+mean of sr3: 60.0
+sr3 improves: true
+sr3 final grade 65.0
+ */
 }
