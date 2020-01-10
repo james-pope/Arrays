@@ -19,10 +19,19 @@ public class GradeAverage {
 	// returns the mean (average) of the values in the scores array
 	// whose indexes are between first and last (including first and last).  
 	//You may assume that first and last are > 0 and < scores.length
-	private double mean(int first, int last)
+	public double mean(int first, int last)
 	{
 		//TODO add code here
 		//make this public to test this
+		double sum = 0;
+		int count = 0;
+		for (int i = first; i <= last; i++) {
+			sum += scores[i];
+			count++;
+		}
+		if (count > 0){
+			return sum/(double)count;
+		}
 		return 0.0;
 	}
 	
@@ -31,6 +40,12 @@ public class GradeAverage {
 	private boolean showsImprovement()
 	{
 		//TODO add code here
+		int max = scores[scores.length - 1];
+		for (int i = 0; i < scores.length-1; i++){
+			int first = scores[i];
+			int second = scores[i+1];
+			
+		}
 		return false;
 	}
 	
@@ -48,17 +63,17 @@ public class GradeAverage {
 		int [] s3 = {20,50,50,80};      // improved, final grade is 65.0
 		
 		GradeAverage sr1 = new GradeAverage(s1);
-		//System.out.println(sr1.mean());
+		System.out.println("mean of sr1: " + sr1.mean(1, 4));
 		//System.out.println(sr1.showsImprovement());
-		System.out.println(sr1.finalGrade());
+		//System.out.println(sr1.finalGrade());
 		GradeAverage sr2 = new GradeAverage(s2);
-		//System.out.println(sr2.mean());
+		System.out.println("mean of sr2: " + sr2.mean(2, 4));
 		//System.out.println(sr2.showsImprovement());
-		System.out.println(sr2.finalGrade());
-		//System.out.println(sr3.mean());
-		//System.out.println(sr3.showsImprovement());
+		//System.out.println(sr2.finalGrade());
 		GradeAverage sr3 = new GradeAverage(s3);
-		System.out.println(sr3.finalGrade());
+		System.out.println("mean of sr3: " + sr3.mean(1, 3));
+		//System.out.println(sr3.showsImprovement());
+		//System.out.println(sr3.finalGrade());
 	}
 
 }
