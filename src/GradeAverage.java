@@ -41,12 +41,19 @@ public class GradeAverage {
 	{
 		//TODO add code here
 		int max = scores[scores.length - 1];
+		int first;
+		int second;
 		for (int i = 0; i < scores.length-1; i++){
-			int first = scores[i];
-			int second = scores[i+1];
-			
+			first = scores[i];
+			second = scores[i+1];
+			if (first > second){
+				return false;
+			}
+			if (second > max){
+				return false;
+			}
 		}
-		return false;
+		return true;
 	}
 	
 	// if the values in the scores array show improvement, returns the
@@ -55,7 +62,11 @@ public class GradeAverage {
 	public double finalGrade()
 	{
 		//TODO add code here
-		return 0.0;
+		if (showsImprovement()){
+			return mean(scores.length/2, scores.length-1);
+		} else {
+			return mean(0, scores.length -1);
+		}
 	}
 	public static void main(String[] args) {
 		int [] s1 = {50,50,20,80,53};   // not improved, finalGrade is 50.6
@@ -64,16 +75,16 @@ public class GradeAverage {
 		
 		GradeAverage sr1 = new GradeAverage(s1);
 		System.out.println("mean of sr1: " + sr1.mean(1, 4));
-		//System.out.println(sr1.showsImprovement());
-		//System.out.println(sr1.finalGrade());
+		System.out.println("sr1 improves: " + sr1.showsImprovement());
+		System.out.println("sr1 final grade: " + sr1.finalGrade());
 		GradeAverage sr2 = new GradeAverage(s2);
 		System.out.println("mean of sr2: " + sr2.mean(2, 4));
-		//System.out.println(sr2.showsImprovement());
-		//System.out.println(sr2.finalGrade());
+		System.out.println("sr2 improves: " + sr2.showsImprovement());
+		System.out.println("sr2 final grade: " + sr2.finalGrade());
 		GradeAverage sr3 = new GradeAverage(s3);
 		System.out.println("mean of sr3: " + sr3.mean(1, 3));
-		//System.out.println(sr3.showsImprovement());
-		//System.out.println(sr3.finalGrade());
+		System.out.println("sr3 improves: " + sr3.showsImprovement());
+		System.out.println("sr3 final grade " + sr3.finalGrade());
 	}
 
 }
